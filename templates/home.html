@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>HELLO WORLD</h1>
+<h3>{{ block.super }}</h3>
+<p><h2>THIS IS HTML COMING THROUGH ..... ... </h2></p>
+<p>
+    Random number is {{ num }}
+
+    {% for some_item in some_list %}
+        <br>{{ some_item }}
+        {% if some_item|divisibleby:"2" %}
+            EVEN NUMBER
+        {% endif %}
+    {% endfor %}
+</p>
+<p>THIS IS {{html_var}} HTML COMING THROUGH FSTRINGS ... </p>
+{% endblock content %}
