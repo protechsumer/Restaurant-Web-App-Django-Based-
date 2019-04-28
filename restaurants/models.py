@@ -1,11 +1,10 @@
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save, post_save
-#from django.core.urlresolvers import reverse   #NEEDED TO BE INSTALLED MODULE
+from django.urls import reverse   #NEEDED TO BE INSTALLED MODULE
 from django.db.models import Q
 from .utils import unique_slug_generator
 from .validators import validate_category
-# Create your models here.
 
 User = settings.AUTH_USER_MODEL
 
@@ -42,9 +41,9 @@ class RestaurantLocation(models.Model):
     def __str__(self):
         return self.name
 
-    #def get_absolute_url(self):
+    def get_absolute_url(self):
         #return f"/restaurants/{self.slug}"
-    #    return reverse('restaurants:detail', kwargs={'slug':self.slug})
+        return reverse('restaurants:detail', kwargs={'slug':self.slug})
 
     @property
     def title(self):
